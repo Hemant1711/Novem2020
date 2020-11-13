@@ -19,7 +19,9 @@ public class Stock_Market {
 	//Open Page
 	
 	driver.get("https://www.google.com/");
-	Thread.sleep(2000);
+	Thread.sleep(1000);
+	driver.manage().window().maximize();
+	
 	driver.findElement(By.name("q")).sendKeys("1 CAD to INR");
 	driver.findElement(By.className("gNO89b")).click();
 	String rupee1 = driver.findElement(By.xpath("//*[@id='knowledge-currency__updatable-data-column']/div[1]/div[2]/span[1]")).getText();
@@ -27,8 +29,7 @@ public class Stock_Market {
 	System.out.println("1 CAD is " +rupee1+" rupees");
 	Thread.sleep(2000);
 	driver.get("https://money.tmx.com/en/quote/CHR");
-	Thread.sleep(6000);
-	driver.manage().window().maximize();
+	Thread.sleep(5000);
 	
 	String str1 = driver.findElement(By.cssSelector("div.sc-gmfbfk.efPjgm")).getText();
 	System.out.println("The current value of CHR in TSX is " +str1);
@@ -36,22 +37,22 @@ public class Stock_Market {
 	// Implicitly wait
 	//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	
-	Thread.sleep(3000);
+	Thread.sleep(1000);
 	//driver.close();
 	driver.get("https://money.tmx.com/en/quote/BLU");
-	Thread.sleep(3000);
-	//driver.manage().window().maximize();
-	String str2 = driver.findElement(By.cssSelector("div.sc-dHMjyi.gzSWnW")).getText();
+	Thread.sleep(5000);
+	String str2 = driver.findElement(By.cssSelector("div.sc-gmfbfk.efPjgm")).getText();
+	String bname = driver.findElement(By.cssSelector("div.sc-fYOzFx.ftvlBV")).getText();
 	
-	System.out.println("The current value of BLU in TSX is " +str2);
-	Thread.sleep(2000);
+	System.out.println("The current value of "+bname+" in TSX is " +str2);
+	Thread.sleep(1000);
 	
 	driver.get("https://money.tmx.com/en/quote/SJR.B");
 	Thread.sleep(3000);
 	String str3 = driver.findElement(By.cssSelector("div.sc-fTFLOO.jxvOeh")).getText();
 	
-	System.out.println("The current value of  in SJR.B is " +str3);
-	Thread.sleep(2000); 
+	System.out.println("The current value of SJR.B is " +str3);
+	Thread.sleep(1000); 
 	driver.close();
 	}
 
